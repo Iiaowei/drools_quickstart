@@ -1,0 +1,44 @@
+package student
+
+import com.itheima.drools.entity.Student
+
+//测试Drools内置方法
+
+//retract
+rule "要求Student的age等于10岁用于删除"
+    //salience 10 优先级
+    when
+        $student:Student(age == 10)
+    then
+        retract($student);//删除工作内存的Fact对象
+        System.out.println("规则: 要求Student的age等于10岁用于删除触发了...");
+end
+
+//insert
+rule "要求Student的age等于10岁"
+    when
+        $student:Student(age == 10)
+    then
+        Student s = new Student();
+        s.setAge(5);
+        insert(s);
+        System.out.println("规则: 要求Student的age等于10岁触发了...");
+end
+
+//update
+rule "要求Student的age小于10岁"
+    when
+        $student:Student(age < 10)
+    then
+        $student.setAge(15);
+        update($student);
+        System.out.println("规则: 要求Student的age小于10岁触发了...");
+end
+
+rule "要求Student的age大于10岁并且小于20岁"
+    when
+        $student:Student(age < 20 && age > 10)
+    then
+        //$student.setAge(15);
+        System.out.println("规则: 要求Student的age大于10岁并且小于20岁触发了...");
+end
