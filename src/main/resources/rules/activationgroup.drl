@@ -1,0 +1,17 @@
+package testactivationgroup
+
+rule "rule_activationgroup_1"
+    activation-group "mygroup"
+    when
+
+    then
+        System.out.println("规则: rule_activationgroup_1触发了...");
+end
+
+rule "rule_activationgroup_2"
+    activation-group "mygroup"
+    when
+
+    then
+        System.out.println("规则: rule_activationgroup_2触发了...");
+end

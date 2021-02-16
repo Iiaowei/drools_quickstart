@@ -7,6 +7,7 @@ import com.itheima.drools.entity.Student
 //retract
 rule "要求Student的age等于10岁用于删除"
     //salience 10 优先级
+    enabled false
     when
         $student:Student(age == 10)
     then

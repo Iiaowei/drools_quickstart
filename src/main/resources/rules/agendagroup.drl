@@ -1,0 +1,31 @@
+package testagendagroup
+
+rule "rule_agendagroup_1"
+    agenda-group "agenda_group_1"
+    when
+    then
+        System.out.println("rule_agendagroup_1触发了...");
+end
+
+rule "rule_agendagroup_2"
+    //议程分组, 只有获得焦点的组中的规则才能触发
+    agenda-group "agenda_group_1"
+    when
+    then
+        System.out.println("rule_agendagroup_2触发了...");
+end
+
+rule "rule_agendagroup_3"
+    agenda-group "agenda_group_2"
+    auto-focus true
+    when
+    then
+        System.out.println("rule_agendagroup_3触发了...");
+end
+
+rule "rule_agendagroup_4"
+    agenda-group "agenda_group_2"
+    when
+    then
+        System.out.println("rule_agendagroup_4触发了...");
+end

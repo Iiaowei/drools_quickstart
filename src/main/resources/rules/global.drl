@@ -1,0 +1,26 @@
+package testglobal
+
+import com.itheima.drools.service.UserService
+
+global java.lang.Integer count
+global java.util.List gList
+global UserService userService
+
+rule "rule_global_1"
+    when
+    then
+        //只对当前规则生效
+        count += 10;
+        System.out.println("规则: rule_global_1触发了...");
+        System.out.println("全局变量count计算之后的值为: " + count);
+        gList.add("itcast");
+        System.out.println("gList size: " + gList.size());
+        userService.save();
+end
+
+rule "rule_global_2"
+    when
+    then
+        System.out.println("规则: rule_global_1触发了...");
+        System.out.println("全局变量count计算之后的值为: " + count);
+end

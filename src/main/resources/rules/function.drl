@@ -1,0 +1,15 @@
+package testfunction
+
+import com.itheima.drools.entity.Student
+
+function String sayHello(String name) {
+    return "hello " + name;
+}
+
+rule "rule_function_1"
+    when
+        $s:Student(age > 60)
+    then
+        String ret = sayHello($s.getName());
+        System.out.println("调用sayHello函数, 获得返回结果: " + ret);
+end

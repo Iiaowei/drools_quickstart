@@ -1,0 +1,17 @@
+package testtimer
+
+//第一种使用方式
+rule "rule_timer_1"
+    timer(3s 2s)  //指定触发时间, 3s后触发, 每隔2s触发一次
+    when
+    then
+        System.out.println("规则: rule_timer_1触发了...");
+end
+
+//第二种使用方式
+rule "rule_timer_2"
+    timer(cron:0/1 * * * * ?)
+    when
+    then
+        System.out.println("规则: rule_timer_2触发了...");
+end

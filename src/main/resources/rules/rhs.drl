@@ -1,0 +1,24 @@
+package testrhs
+
+import org.drools.core.WorkingMemory
+import org.drools.core.definitions.rule.impl.RuleImpl
+
+rule "rule_rhs_1"
+    when
+    then
+        System.out.println("规则: rule_rhs_1触发了...");
+        WorkingMemory workingMemory = drools.getWorkingMemory(); //获得工作内存对象, session对象
+        System.out.println(workingMemory);
+        RuleImpl rule = drools.getRule(); //获得当前规则对象
+        System.out.println(rule);
+        System.out.println(rule.getAutoFocus());
+        System.out.println(rule.getId());
+        System.out.println(rule.getDateExpires());
+        drools.halt(); //终止后面所有规则执行
+end
+
+rule "rule_rhs_2"
+    when
+    then
+        System.out.println("规则: rule_rhs_2触发了...");
+end
